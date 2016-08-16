@@ -1,0 +1,49 @@
+{
+  "/users": {
+    "implementations": {
+      "POST": {
+        "registerNewUser": {
+          "title": "Register New User",
+          "notes": "Create a full user account",
+          "require": {
+            "body": [
+              "user_email",
+              "user_password"
+            ]
+          },
+          "returns": [
+            "user_id"
+          ]
+        },
+        "inviteNewUser": {
+          "title": "Invite New Use",
+          "notes": "Invite a user to create an account",
+          "require": {
+            "body": [
+              "user_email"
+            ]
+          },
+          "returns": [
+            "invite_id"
+          ]
+        }
+      },
+      "PUT": {
+        "changePassword": {
+          "title": "Change User Password",
+          "notes": "Changes a users password",
+          "require": {
+            "body": [
+              "user_email",
+              "user_password",
+              "old_password"
+            ],
+            "returns": [
+              "user_id"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

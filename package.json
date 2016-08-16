@@ -1,0 +1,24 @@
+{
+  "name": "docere",
+  "version": "1.0.0",
+  "description": "JSON Based API Documentation",
+  "main": "buildTree.js",
+  "dependencies": {
+    "chokidar": "^1.6.0",
+    "fs-extra": "^0.30.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blankbox/docere.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blankbox/docere/issues"
+  },
+  "homepage": "https://github.com/blankbox/docere#readme"
+}

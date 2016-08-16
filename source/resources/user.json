@@ -1,0 +1,42 @@
+{"/users": {
+    "name": "users",
+    "abr": "use",
+    "description": "The user endpoint is used to create and read new users",
+    "requests": {
+      "POST": {
+        "notes": "Creates a new user",
+        "noauth": true,
+        "allowed": {
+          "body": [
+            "user_email",
+            "user_password"
+          ]
+        }
+      },
+      "GET": {
+        "notes": "Returns information about that user, or the collection thereof",
+        "allowed": {
+          "query": [
+            "user_id"
+          ]
+        }
+      },
+      "PUT": {
+        "notes": "Updates information about that user, or the collection thereof",
+        "allowed": {
+          "query": [
+            "user_id"
+          ]
+        }
+      },
+      "DELETE": {
+        "notes": "Deletes are user record, or the collection thereof",
+        "allowed": {
+          "query": [
+            "user_id"
+          ]
+        }
+      }
+    }
+  }
+  }

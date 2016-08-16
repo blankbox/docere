@@ -1,0 +1,4 @@
+{
+  "loadResources":
+  ["profile", "token", "user"]
+}
