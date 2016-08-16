@@ -1,0 +1,3 @@
+[submodule "projects/test"]
+	path = projects/test
+	url = git@github.com:blankbox/docere-test.git

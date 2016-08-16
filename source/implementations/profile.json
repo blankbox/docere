@@ -1,0 +1,70 @@
+{
+  "/profiles": {
+    "implementations": {
+      "POST": {
+        "createNewProfile2": {
+          "title": "Create New Profile",
+          "notes": "Create a Profile for a user",
+          "require": {
+            "body": [
+              "forename",
+              "surname"
+            ]
+          },
+          "returns": [
+            "user_id",
+            "profile_id"
+          ]
+        }
+      },
+      "PUT": {
+        "updateProfile": {
+          "title": "Update Profile",
+          "notes": "Upated User's Profile information",
+          "require": {
+            "body": [
+              "forname",
+              "surname"
+            ],
+            "returns": [
+              "user_id",
+              "profile_id"
+            ]
+          }
+        }
+      },
+      "GET": {
+        "findProfileByUserID": {
+          "title": "Get User Profile by User ID",
+          "notes": "Get the a user profile record by User ID",
+          "require": {
+            "query": [
+              "user_id"
+            ],
+            "returns": [
+              "user_id",
+              "profile_id",
+              "forename",
+              "surname"
+            ]
+          }
+        },
+        "findProfileByProfileID": {
+          "title": "Get User Profile by Profile ID",
+          "notes": "Get the a user profile record by Profile ID",
+          "require": {
+            "query": [
+              "profile_id"
+            ],
+            "returns": [
+              "user_id",
+              "profile_id",
+              "forename",
+              "surname"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

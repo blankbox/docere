@@ -1,0 +1,27 @@
+{
+  "/profiles": {
+    "name": "profile",
+    "abr": "pro",
+    "description": "The profile endpoint is used to create, update, and find user profiles",
+    "requests": {
+      "POST": {
+        "notes": "Create a new Profile",
+        "allowed": {
+          "body": [
+            "forename",
+            "surname"
+          ]
+        }
+      },
+      "GET": {
+        "notes": "Find Profiles",
+        "allowed": {
+          "body": [
+            "user_id",
+            "profile_id"
+          ]
+        }
+      }
+    }
+  }
+}
