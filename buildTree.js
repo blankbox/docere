@@ -1,12 +1,9 @@
 var fs = require('fs-extra');
 
 var files = [];
-function getFilesRecursive (folder) {
+function getProjects (folder) {
 
-
-    var fileContents = fs.readdirSync(folder),
-        fileTree = [],
-        stats;
+    var fileContents = fs.readdirSync(folder);
 
     fileContents.map(function (fileName) {
 
@@ -15,39 +12,72 @@ function getFilesRecursive (folder) {
       var stats = fs.lstatSync(current);
 
       if (stats.isDirectory()) {
-        // console.log('current', current, getFilesRecursive(current).map(function (filename) {return current + '/' + filename;}));
-        getFilesRecursive(current)
+        return current;
       } else {
-        files.push(current);
-        // files.push(current)
+        return 'false';
       }
 
     });
 
-    // console.log('output', fileContents);
-
-    return files;
+    return fileContents;
 
 };
 
-function getConfigFiles (name) {
-
-  var resource = cache.load(__dirname + '/source/resources/' + name + '.json')
-  var implementations = cache.load(__dirname + '/source/implementations/' + name + '.json')
-
-  return [resource, implementations]
-
+function getResourceConfigs (name) {
+  var resource = cache.load(__dirname + '/source/resources/' + name + '.json');
+  return resource;
 }
+
+function getImplementationConfigs (name) {
+  var implementations = cache.load(__dirname + '/source/implementations/' + name + '.json');
+  return implementations;
+}
+
+
+function buildConfig (name) {
+  var fullConfig = {};
+
+  for (var i = 0; i < load.length; i++) {
+
+    var endpoint = load[i];
+
+    var resource = getResourceConfigs(endpoint);
+    var implementations = getImplementationConfigs(endpoint);
+
+    var paths = Object.keys(resource);
+
+    for (var j = 0; j < paths.length; j++) {
+      var currentPath =  paths[j];
+
+      if (typeof fullConfig[currentPath] === 'undefined') {
+        fullConfig[currentPath] = resource[currentPath];
+      }
+
+      fullConfig[currentPath].implementations = implementations[currentPath];
+
+      console.log(endpoint, 'config', currentPath);
+    }
+
+  }
+
+  return fullConfig;
+}
+
 
 var cache = require('./lib/cacheFiles.js');
 
 var obj = cache.load(__dirname + '/source/config.json');
 var load = obj.loadResources;
 
-for (var i = 0; i < load.length; i++) {
-  // console.log('user config', getConfigFiles(load[i]));
-}
 
-setInterval(function () {
-  console.log('tick', cache.load(__dirname + '/source/config.json'));
-}, 2000)
+var express = require('express');
+
+var app = express();
+
+app.listen(3000);
+
+app.get('*', function (req, res, next) {
+  res.json(getProjects(__dirname + '/source'))
+
+  // res.json(buildConfig());
+})

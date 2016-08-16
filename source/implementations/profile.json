@@ -2,7 +2,7 @@
   "/profiles": {
     "implementations": {
       "POST": {
-        "createNewProfile": {
+        "createNewProfile2": {
           "title": "Create New Profile",
           "notes": "Create a Profile for a user",
           "require": {

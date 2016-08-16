@@ -5,6 +5,7 @@
   "main": "buildTree.js",
   "dependencies": {
     "chokidar": "^1.6.0",
+    "express": "^4.14.0",
     "fs-extra": "^0.30.0"
   },
   "devDependencies": {},
